@@ -71,13 +71,15 @@ ui <- fluidPage(
         mainPanel(
             tabsetPanel(id = "tab",
                         # Frist tab for introduction for this app and links to download the file used as input.
-                        # tabPanel(title = "Data", value = 1,
-                        #          fluidRow(
-                        #              #tableOutput(outputId = "nconnectionemail")
-                        #              column(6, dataTableOutput(outputId = "nconnectionemail")),
-                        #              column(6, dataTableOutput(outputId = "ndepartment"))
-                        #          )
-                        # ),
+                        tabPanel(title = "Welcome", value =99,
+                                 fluidRow(
+                                     tags$h3(tags$u("Introduction:")),
+                                     tags$div(class = "Intro",
+                                              tags$p("This", tags$i("Shiny App"), "to demostrate the social network
+                                                     genetared using email data from a large European research
+                                                      institution."))
+                                 )
+                        ),
                         
                         # Second tab for displaying the data in tabular from.
                         tabPanel(title = "Data", value = 1,
