@@ -76,10 +76,35 @@ ui <- fluidPage(
                                      tags$h3(tags$u("Introduction:")),
                                      tags$div(class = "Intro",
                                               tags$p("This", tags$i("Shiny App"), "to demostrate the social network
-                                                     genetared using email data from a large European research
-                                                      institution."))
-                                 )
-                        ),
+                                                     genetared due to email exchange between different departments of 
+                                                     a large European research institution. The dataset is a subset 
+                                                     of data provided by Stanford Network Analysis Platform", 
+                                                     tags$b(tags$a(href="https://snap.stanford.edu/data/email-EuAll.html", target="_blank",
+                                                     "(Know more about it!)")), ".")
+                                              ),
+                                     tags$div(class = "File",
+                                              tags$h4(tags$u("DataSet Files:")),
+                                              tags$p("To use this app, dataset files need to be downloaded first. Description of the files
+                                                     and the links to downdoan them are provided below."),
+                                              tags$ul(
+                                                  tags$li(tags$b("Email File (email-Eu-core.txt):"),"Contains data generated as the result of email exchanges from a large 
+                                                          European research institution. The actual information has been anonymized 
+                                                          about all incoming and outgoing email between members of the research institution.",
+                                                          tags$a(href="https://drive.google.com/open?id=1_MrrFx7lisc44dPOgqbPB2OJ1Dwk3FZS", target="_blank",
+                                                                 "(download here.)")),
+                                                  tags$li(tags$b("Dept File (email-Eu-core-department-labels.txt):"), "This file contains the 
+                                                          department of the individuals. Each individual belongs to exactly one of 42 departments
+                                                          at the research institute. This information is also anonymized.",
+                                                          tags$a(href="https://drive.google.com/open?id=1N8o00ROmM6bq0URaXXHJtLeQHVnJYCB9", target="_blank",
+                                                                 "(download here.)")
+                                                          )
+                                                    )
+                                                ),
+                                     tags$div(class = "File",
+                                              tags$h4(tags$u("About Me:"))
+                                                  )
+                                    )
+                                ),
                         
                         # Second tab for displaying the data in tabular from.
                         tabPanel(title = "Data", value = 1,
@@ -573,7 +598,7 @@ server <- function(input, output){
                 node_list <- indegree_table()$node_name[1:10]
             }
             
-            print(node_list)
+            #print(node_list)
             visIgraph(i_graph) %>%
                 visIgraphLayout(i_graph, layout = "layout_nicely") %>%
                 visNodes(size = 50,   height = "500px", width = "100%",
